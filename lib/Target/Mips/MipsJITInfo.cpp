@@ -122,8 +122,10 @@ void MipsCompilationCallback();
     "sw $a3, 32($sp)\n"
     "sw $ra, 36($sp)\n"
     "sw $t8, 40($sp)\n"
+    ".set mips2\n"
     "sdc1 $f12, 48($sp)\n"
     "sdc1 $f14, 56($sp)\n"
+    ".set mips0\n"
 
     // t8 points at the end of function stub. Pass the beginning of the stub
     // to the MipsCompilationCallbackC.
@@ -138,8 +140,10 @@ void MipsCompilationCallback();
     "lw $a3, 32($sp)\n"
     "lw $ra, 36($sp)\n"
     "lw $t8, 40($sp)\n"
+    ".set mips2\n"
     "ldc1 $f12, 48($sp)\n"
     "ldc1 $f14, 56($sp)\n"
+    ".set mips0\n"
     "addiu $sp, $sp, 64\n"
 
     // Jump to the (newly modified) stub to invoke the real function.
